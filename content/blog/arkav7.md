@@ -4,7 +4,7 @@ date: 2021-10-11T23:45:25+07:00
 slug: ""
 description: "Write-Up CTF Arkavidia7.0"
 keywords: [CTF]
-draft: true
+draft: false
 tags: [CTF, OSINT]
 math: false
 toc: false
