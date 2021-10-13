@@ -10,7 +10,7 @@ from Binus University.
 - Penetration Testing
 - OSINT
 
-## Organisational Experience
+## Organizational Experience
 - 2016 - 2017 : Student Council Member of SMA Santo Yakobus
 - 2017 - 2018  : Staff of Yakobus Cup competition
 - 2019 - 2020 : Staff of Keluarga Mahasiswa Katolik Binus University
