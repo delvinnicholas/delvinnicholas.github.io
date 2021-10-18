@@ -1,6 +1,6 @@
 # Welcome to my portfolio
 
-<img src="/selen.png" width="200"/>
+<img src="/selen.png" style="width:200px"/>
 
 ## Profile
 My name is Delvin Nicholas, a junior year cyber security student from Binus University. I have a passion in photography, front-end and cyber security, especially in OSINT field.
