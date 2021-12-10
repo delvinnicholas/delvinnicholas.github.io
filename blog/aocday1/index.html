@@ -1,0 +1,145 @@
+<!doctype html><html lang=en-us>
+<head>
+<title>Advent of Cyber 2021 - Day 1 & 2 | delvinnicholas</title>
+<meta charset=utf-8>
+<meta name=language content="en">
+<meta name=description content="Write-up for AOC Day 1 & 2 at TryHackMe">
+<meta name=keywords content>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<link rel="shortcut icon" type=image/png href=/favicon.ico>
+<link type=text/css rel=stylesheet href=/css/post.min.86d1effd4c412b85ac13db53a90c473a0f256f789b821e131125c9aa25cb6a6d.css integrity="sha256-htHv/UxBK4WsE9tTqQxHOg8lb3ibgh4TESXJqiXLam0=">
+<link type=text/css rel=stylesheet href=/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css integrity="sha256-47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=">
+<script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/delvinnicholas.github.io"},"articleSection":"blog","name":"Advent of Cyber 2021 - Day 1 \u0026 2","headline":"Advent of Cyber 2021 - Day 1 \u0026 2","description":"Write-up for AOC Day 1 \u0026 2 at TryHackMe","inLanguage":"en-US","author":"","creator":"","publisher":"","accountablePerson":"","copyrightHolder":"","copyrightYear":"2021","datePublished":"2021-12-10 21:17:25 \u002b0700 \u002b0700","dateModified":"2021-12-10 21:17:25 \u002b0700 \u002b0700","url":"https:\/\/delvinnicholas.github.io\/blog\/aocday1\/","wordCount":"313","keywords":["Blog"]}</script>
+</head>
+<body>
+<div class=burger__container>
+<div class=burger aria-controls=navigation aria-label=Menu>
+<div class="burger__meat burger__meat--1"></div>
+<div class="burger__meat burger__meat--2"></div>
+<div class="burger__meat burger__meat--3"></div>
+</div>
+</div>
+<nav class=nav id=navigation>
+<ul class=nav__list>
+<li>
+<a href=/>/home</a>
+</li>
+<li>
+<a href=/about>about</a>
+</li>
+<li>
+<a class=active href=/blog>blog</a>
+</li>
+<li>
+<a href=/tags>tags</a>
+</li>
+</ul>
+</nav>
+<main>
+<div class=flex-wrapper>
+<div class=post__container>
+<div class=post>
+<header class=post__header>
+<h1 id=post__title>Advent of Cyber 2021 - Day 1 & 2</h1>
+<time datetime="2021-12-10 21:17:25 +0700 +0700" class=post__date>Dec 10 2021</time>
+</header>
+<article class=post__content>
+<p><strong>Day 1 - Save The Gifts</strong><br>
+IDOR Vulnerability <br>
+Question :</p>
+<ul>
+<li><em>After finding Santa&rsquo;s account, what is their position in the company?</em>
+Dengan mengubah parameter ID, kita dapat mengakses data milik orang lain.
+<code>The Boss</code></li>
+<li><em>After finding McStocker&rsquo;s account, what is their position in the company?</em>
+<code>Build manager</code></li>
+<li><em>After finding the account responsible for tampering, what is their position in the company?</em><br>
+<code>Mischief Manager</code></li>
+<li><em>What is the received flag when McSkidy fixes the Inventory Management System?</em><br>
+<code>THM{AOC_IDOR_2B34BHI3}</code></li>
+</ul>
+<hr>
+<p><strong>Day 2 - Elf HR Problems</strong><br>
+HTTPS, cookie<br>
+Below is a summary of how cookie values could be manipulated</p>
+<ol>
+<li>Obtain a cookie value from registering or signing up for an account.</li>
+<li>Decode the cookie value.</li>
+<li>Identify the object notation or structure of the cookie.</li>
+<li>Change the parameters inside the object to a different parameter with a higher privilege level, such as admin or administrator.</li>
+<li>Re-encode the cookie and insert the cookie into the value space; this can be done by double-clicking the value box.</li>
+<li>Action the cookie; this can be done by refreshing the page or logging in.</li>
+</ol>
+<p>Question :</p>
+<ul>
+<li>
+<p><em>Open the static site in a new tab, Register an account, and verify the cookies using the Developer Tools in your browser.</em>
+<img src=/images/aocday1/910e2f94eaf3731de652a15f0728e02d.png alt=910e2f94eaf3731de652a15f0728e02d.png></p>
+</li>
+<li>
+<p>*What is the name of the new cookie that was created for your account?
+<code>user-auth</code>
+<img src=/images/aocday1/5e1dc8de25e1b6473775c77de1c946e4.png alt=5e1dc8de25e1b6473775c77de1c946e4.png></p>
+</li>
+<li>
+<p><em>What encoding type was used for the cookie value?</em><br>
+<code>hexadecimal</code></p>
+</li>
+<li>
+<p><em>What object format is the data of the cookie stored in?</em><br>
+<code>JSON</code></p>
+</li>
+<li>
+<p><em>Manipulate the cookie and bypass the login portal. What is the value of the administrator cookie? (username = admin)</em>
+Ambil value dari cookie yang kita punya, kemudian kita decode menggunakan hexadecimal, dan kita ganti value username menjadi &lsquo;admin&rsquo;. Ubah kembali menjadi hexadecimal dan ubah value cookie yang kita punya dengan cookie baru.
+<img src=/images/aocday1/75531db4e0294589ee4428d4d35d68fa.png alt=75531db4e0294589ee4428d4d35d68fa.png>
+<img src=/images/aocday1/501575c0478b451b8bf1c46830e0e248.png alt=501575c0478b451b8bf1c46830e0e248.png><br>
+<code>7b636f6d70616e793a2022546865204265737420466573746976616c20436f6d70616e7922 2c206973726567697374657265643a2254727565222c20757365726e616d653a2261646d696e227d</code>
+Setelah disimpan, halaman di-refresh dan kita masuk menjadi admin
+<img src=/images/aocday1/d9edfafc1f3a25589f99904dd661d724.png alt=d9edfafc1f3a25589f99904dd661d724.png></p>
+</li>
+<li>
+<p><em>What team environment is not responding?</em><br>
+<code>HR</code></p>
+</li>
+<li>
+<p><em>What team environment has a network warning?</em><br>
+<code>Application</code></p>
+</li>
+</ul>
+</article>
+<ul class=tags__list>
+<li class=tag__item>
+<a class=tag__link href=https://delvinnicholas.github.io/tags/tryhackme/>TryHackMe</a>
+</li>
+<li class=tag__item>
+<a class=tag__link href=https://delvinnicholas.github.io/tags/web/>Web</a>
+</li></ul>
+<div class=pagination>
+<a class=pagination__item href=https://delvinnicholas.github.io/blog/arkav7/>
+<span class=pagination__label>Previous Post</span>
+<span class=pagination__title>Arkavidia7.0</span>
+</a>
+</div>
+<footer class=post__footer>
+<div class=social-icons>
+<a class=social-icons__link title=GitHub href=https://github.com/delvinnicholas target=_blank rel="me noopener">
+<div class=social-icons__icon style=background-image:url(https://delvinnicholas.github.io/svg/github.svg)></div>
+</a>
+<a class=social-icons__link title=Linkedin href=https://linkedin.com/in/delvin-nicholas-2508821b6 target=_blank rel="me noopener">
+<div class=social-icons__icon style=background-image:url(https://delvinnicholas.github.io/svg/linkedin.svg)></div>
+</a>
+</div>
+<p>© 2021</p>
+</footer>
+</div>
+</div>
+</div>
+</main>
+<script src=/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js integrity="sha256-V13ajUnuAmOZQsY1ZCc+balyq1Md2iagiAC9y0d8vX8=" crossorigin=anonymous></script>
+<script src=https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js></script>
+<script src=https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js data-autoloader-path=https://unpkg.com/prismjs@1.20.0/components/></script>
+</body>
+</html>
